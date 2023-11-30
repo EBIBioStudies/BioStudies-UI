@@ -107,7 +107,8 @@ var DetailPage = (function (_self) {
 
     _self.collectionScripts = [
         {regex: /^E-*/, script: 'arrayexpress.js'},
-        {regex: /^S-SCDT-*/, script: 'sourcedata.js'}
+        {regex: /^S-SCDT-*/, script: 'sourcedata.js'},
+        {regex: /^S-BIAD-*/, script: 'bioimages.js'},
     ];
 
     return _self;

@@ -113,8 +113,12 @@ function handleProjectSpecificUI(){
 }
 
 function handleBioImagesUI() {
-    $('#local-title').html('<h1><img src="' + contextPath + '/images/collections/bioimages/logo.png"></img></h1>');
-    $('#masthead').css("background-image","url("+contextPath +"/images/collections/bioimages/background.jpg)");
+    $('#local-title').html('<div style="padding:1em; width:86%; line-height:0; background-color:white;opacity: 0.9;"><section style="display: flex; gap: 10px;"><div>' +
+        '<img src="https://uk1s3.embassy.ebi.ac.uk/bia-integrator-data/pages/assets/BIA-Logo.png" style="width:80px"></div>' +
+        '<div><h2 style="font-size: 42px; color: #1a1c1a; font-weight: 700; line-height: 1" >BioImage Archive</h2>' +
+        '<span style="font-size:21px; font-weight: 500; line-height: 1.29; color: #1a1c1a; ">A resource for open, FAIR life science imaging data</span>' +
+        '</div></section></div>');
+    $('#masthead').css({"background-image":"url("+contextPath +"/images/collections/bioimages/background.png)","background-position":"center center"});
     $('.masthead, #ebi_search .button, .pagination .current').css("background-color","rgb(0, 124, 130)");
     $('.menu.float-left li a:contains("Home")').attr('href','/bioimage-archive/');
     $('.menu.float-left li a:contains("Browse")').attr('href','/biostudies/BioImages/studies');
@@ -168,6 +172,17 @@ function handleBioImagesUI() {
         '                            </ul>\n' +
         '                        </li>');
     about.replaceWith(newaboutmenu);
+
+    $('#masthead nav').attr('id','bia-nav');
+    $('#bia-nav').appendTo(($('header').parent()))
+    $('#bia-nav').css({'max-width': '81.25em', 'margin-right': 'auto', 'margin-left' : 'auto', 'display': 'flex', 'padding-bottom':'0pt'})
+    $('#bia-nav .dropdown.menu > li.is-dropdown-submenu-parent > a::after').css('border','none')
+    $('#bia-nav .dropdown.menu > li > a').css({'font-size': '19px', 'font-weight': '400', 'color':'#1a1c1a', 'border-bottom':'none', 'padding':'0.7rem 0.3rem'})
+    $('#bia-nav').parent().append('<hr style="padding: 0;line-height: 0;margin: 6px auto;width: 69%; border-style:revert;border-width: 1px;">')
+    $('.masthead-inner').css('padding-top','2em')
+    $('div#local-title').css('margin-bottom','2.3em')
+
+
     new Foundation.DropdownMenu(newhelpmenu.parent());
     $('#query').attr('placeholder','Search BioImages');
     $('.sample-query').first().text('brain');
