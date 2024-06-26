@@ -113,13 +113,14 @@ function handleProjectSpecificUI(){
 }
 
 function handleBioImagesUI() {
+
     $('#local-title').html('<h1><img src="' + contextPath + '/images/collections/bioimages/logo.png"></img></h1>');
     $('#masthead').css("background-image","url("+contextPath +"/images/collections/bioimages/background.jpg)");
     $('.masthead, #ebi_search .button, .pagination .current').css("background-color","rgb(0, 124, 130)");
     $('.menu.float-left li a:contains("Home")').attr('href','/bioimage-archive/');
     $('.menu.float-left li a:contains("Browse")').attr('href','/biostudies/BioImages/studies');
     $('.menu.float-left li a:contains("Submit")').attr('href','/bioimage-archive/submit');
-    
+    $('.menu.float-left li a').addClass('biamenu');
     // Add Galleries menu Item
     const galleriesmenu = $('<li role="none">' +
         '                       <a href="/bioimage-archive/galleries/galleries.html" role="menuitem">Galleries</a>' +
