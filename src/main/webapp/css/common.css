@@ -280,5 +280,6 @@ nav span.icon {
 }
 
 .biamenu {
-    color: red !important;
+    background-color: white;
+    color:black !important;
 }
